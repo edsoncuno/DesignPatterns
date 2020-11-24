@@ -11,9 +11,10 @@ public class Frame extends JFrame {
     private JButton btnDecorator;
     private JButton btnIterator;
     private JButton btnSingleton;
+    private JButton btnState;
 
     public Frame() {
-        setSize(660, 200);
+        setSize(360, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initializeComponents();
@@ -26,6 +27,7 @@ public class Frame extends JFrame {
         btnDecorator = new JButton();
         btnIterator = new JButton();
         btnSingleton = new JButton();
+        btnState = new JButton();
 
         getContentPane().add(pan);
 
@@ -35,6 +37,7 @@ public class Frame extends JFrame {
         pan.add(btnDecorator);
         pan.add(btnIterator);
         pan.add(btnSingleton);
+        pan.add(btnState);
 
         btnBridge.setBounds(30, 30, 300, 30);
         btnBridge.setText("Bridge");
@@ -147,6 +150,32 @@ public class Frame extends JFrame {
             public void mouseClicked(MouseEvent arg0) {
                 singleton.Frame frmSingleton = new singleton.Frame();
                 frmSingleton.setVisible(true);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent arg0) {
+            }
+        });
+
+        btnState.setBounds(30, 180, 300, 30);
+        btnState.setText("State");
+        btnState.addMouseListener(new java.awt.event.MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                state.Frame frmState = new state.Frame();
+                frmState.setVisible(true);
             }
 
             @Override
