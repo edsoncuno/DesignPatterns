@@ -21,7 +21,6 @@ public class Frame extends JFrame {
     public Frame() {
         setSize(400, 400);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Decorator");
         initializeComponents();
         initialize();

@@ -7,6 +7,7 @@ public class Frame extends JFrame {
 
     private JPanel pan;
     private JButton btnBridge;
+    private JButton btnChainOfResponsability;
     private JButton btnDecorator;
 
     public Frame() {
@@ -19,12 +20,14 @@ public class Frame extends JFrame {
     private void initializeComponents() {
         pan = new JPanel();
         btnBridge = new JButton();
+        btnChainOfResponsability = new JButton();
         btnDecorator = new JButton();
 
         getContentPane().add(pan);
 
         pan.setLayout(null);
         pan.add(btnBridge);
+        pan.add(btnChainOfResponsability);
         pan.add(btnDecorator);
 
         btnBridge.setBounds(30, 30, 300, 30);
@@ -53,7 +56,33 @@ public class Frame extends JFrame {
             }
         });
 
-        btnDecorator.setBounds(30, 60, 300, 30);
+        btnChainOfResponsability.setBounds(30, 60, 300, 30);
+        btnChainOfResponsability.setText("Bridge");
+        btnChainOfResponsability.addMouseListener(new java.awt.event.MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                chainOfResponsability.Frame frmChainOfResponsability = new chainOfResponsability.Frame();
+                frmChainOfResponsability.setVisible(true);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent arg0) {
+            }
+        });
+
+        btnDecorator.setBounds(30, 90, 300, 30);
         btnDecorator.setText("Decorator");
         btnDecorator.addMouseListener(new java.awt.event.MouseListener() {
             @Override
