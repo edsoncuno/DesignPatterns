@@ -10,6 +10,7 @@ public class Frame extends JFrame {
     private JButton btnChainOfResponsability;
     private JButton btnDecorator;
     private JButton btnIterator;
+    private JButton btnMemento;
     private JButton btnSingleton;
     private JButton btnState;
 
@@ -26,6 +27,7 @@ public class Frame extends JFrame {
         btnChainOfResponsability = new JButton();
         btnDecorator = new JButton();
         btnIterator = new JButton();
+        btnMemento = new JButton();
         btnSingleton = new JButton();
         btnState = new JButton();
 
@@ -36,6 +38,7 @@ public class Frame extends JFrame {
         pan.add(btnChainOfResponsability);
         pan.add(btnDecorator);
         pan.add(btnIterator);
+        pan.add(btnMemento);
         pan.add(btnSingleton);
         pan.add(btnState);
 
@@ -143,7 +146,33 @@ public class Frame extends JFrame {
             }
         });
 
-        btnSingleton.setBounds(30, 150, 300, 30);
+        btnMemento.setBounds(30, 150, 300, 30);
+        btnMemento.setText("Memento");
+        btnMemento.addMouseListener(new java.awt.event.MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                memento.Frame frmMemento = new memento.Frame();
+                frmMemento.setVisible(true);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent arg0) {
+            }
+        });
+
+        btnSingleton.setBounds(30, 180, 300, 30);
         btnSingleton.setText("Singleton");
         btnSingleton.addMouseListener(new java.awt.event.MouseListener() {
             @Override
@@ -169,7 +198,7 @@ public class Frame extends JFrame {
             }
         });
 
-        btnState.setBounds(30, 180, 300, 30);
+        btnState.setBounds(30, 210, 300, 30);
         btnState.setText("State");
         btnState.addMouseListener(new java.awt.event.MouseListener() {
             @Override
