@@ -9,6 +9,7 @@ public class Frame extends JFrame {
     private JButton btnBridge;
     private JButton btnChainOfResponsability;
     private JButton btnDecorator;
+    private JButton btnIterator;
 
     public Frame() {
         setSize(660, 200);
@@ -22,6 +23,7 @@ public class Frame extends JFrame {
         btnBridge = new JButton();
         btnChainOfResponsability = new JButton();
         btnDecorator = new JButton();
+        btnIterator = new JButton();
 
         getContentPane().add(pan);
 
@@ -29,6 +31,7 @@ public class Frame extends JFrame {
         pan.add(btnBridge);
         pan.add(btnChainOfResponsability);
         pan.add(btnDecorator);
+        pan.add(btnIterator);
 
         btnBridge.setBounds(30, 30, 300, 30);
         btnBridge.setText("Bridge");
@@ -89,6 +92,32 @@ public class Frame extends JFrame {
             public void mouseClicked(MouseEvent arg0) {
                 decorator.Frame frmDecorator = new decorator.Frame();
                 frmDecorator.setVisible(true);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent arg0) {
+            }
+        });
+
+        btnIterator.setBounds(30, 120, 300, 30);
+        btnIterator.setText("Iterator");
+        btnIterator.addMouseListener(new java.awt.event.MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                iterator.Frame frmIterator = new iterator.Frame();
+                frmIterator.setVisible(true);
             }
 
             @Override
