@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.event.*;
-import bridge.*;
 
 public class Frame extends JFrame {
 
@@ -10,13 +9,13 @@ public class Frame extends JFrame {
     private JButton btnBridge;
 
     public Frame() {
-        setSize(660,200);
+        setSize(660, 200);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initializeComponents();
     }
 
-    private void initializeComponents(){
+    private void initializeComponents() {
         pan = new JPanel();
         btnBridge = new JButton();
 
