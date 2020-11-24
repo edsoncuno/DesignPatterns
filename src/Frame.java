@@ -10,6 +10,7 @@ public class Frame extends JFrame {
     private JButton btnChainOfResponsability;
     private JButton btnDecorator;
     private JButton btnIterator;
+    private JButton btnSingleton;
 
     public Frame() {
         setSize(660, 200);
@@ -24,6 +25,7 @@ public class Frame extends JFrame {
         btnChainOfResponsability = new JButton();
         btnDecorator = new JButton();
         btnIterator = new JButton();
+        btnSingleton = new JButton();
 
         getContentPane().add(pan);
 
@@ -32,6 +34,7 @@ public class Frame extends JFrame {
         pan.add(btnChainOfResponsability);
         pan.add(btnDecorator);
         pan.add(btnIterator);
+        pan.add(btnSingleton);
 
         btnBridge.setBounds(30, 30, 300, 30);
         btnBridge.setText("Bridge");
@@ -60,7 +63,7 @@ public class Frame extends JFrame {
         });
 
         btnChainOfResponsability.setBounds(30, 60, 300, 30);
-        btnChainOfResponsability.setText("Bridge");
+        btnChainOfResponsability.setText("Chain of Responsability");
         btnChainOfResponsability.addMouseListener(new java.awt.event.MouseListener() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
@@ -118,6 +121,32 @@ public class Frame extends JFrame {
             public void mouseClicked(MouseEvent arg0) {
                 iterator.Frame frmIterator = new iterator.Frame();
                 frmIterator.setVisible(true);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent arg0) {
+            }
+        });
+
+        btnSingleton.setBounds(30, 150, 300, 30);
+        btnSingleton.setText("Singleton");
+        btnSingleton.addMouseListener(new java.awt.event.MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                singleton.Frame frmSingleton = new singleton.Frame();
+                frmSingleton.setVisible(true);
             }
 
             @Override
