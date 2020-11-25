@@ -18,11 +18,10 @@ public class Frame extends JFrame {
     Object[] input;
 
     public Frame() {
-        this.setSize(400, 400);
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setTitle("singleton");
-        this.initializeComponents();
+        setSize(400, 400);
+        setLocationRelativeTo(null);
+        setTitle("singleton");
+        initializeComponents();
     }
 
     private void initializeComponents() {
