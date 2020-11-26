@@ -1,15 +1,15 @@
 package chainOfResponsability;
 
-public class Handler1000 extends Handler {
+public class Handler10000 extends Handler {
 
-    public Handler1000(Handler x) {
+    public Handler10000(Handler x) {
         super(x);
     }
 
     @Override
     public double handlerRequest(double amount) {
-        if (0 <= amount && amount < 1000) {
-            return amount * 0.01;
+        if (amount < 10000) {
+            return amount * 0.02;
         } else {
             if (_nextHandler == null) {
                 return -1;

@@ -13,7 +13,7 @@ public class Frame extends JFrame {
     private JLabel lblOutput;
 
     public Frame() {
-        setSize(400, 400);
+        setSize(360, 150);
         setTitle("Chain of Responsability");
         initializeComponents();
     }
@@ -32,10 +32,10 @@ public class Frame extends JFrame {
         pan.add(lblOutput);
         
         txtInput.setText(null);
-        txtInput.setBounds(30, 30, 150, 30);
+        txtInput.setBounds(30, 30, 300, 30);
         
         btnCalculate.setText("Calculate");
-        btnCalculate.setBounds(30, 60, 150, 30);
+        btnCalculate.setBounds(30, 60, 300, 30);
         btnCalculate.addMouseListener(new java.awt.event.MouseListener() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
@@ -60,15 +60,16 @@ public class Frame extends JFrame {
         });
         
         lblOutput.setText(null);
-        lblOutput.setBounds(30, 90, 150, 30);
+        lblOutput.setBounds(30, 90, 300, 30);
     }
 
     private void calculate() {
-        Handler objHandler2 = new Handler1000(null);
-        Handler objHandler1 = new Handler100(objHandler2);
-        Handler objHandler0 = new Handler10(objHandler1);
+        Handler objHandler3 = new Handler1000000(null);
+        Handler objHandler2 = new Handler100000(objHandler3);
+        Handler objHandler1 = new Handler10000(objHandler2);
+        Handler objHandler = new Handler1000(objHandler1);
         double input = Double.parseDouble(txtInput.getText());
-        lblOutput.setText(String.valueOf(objHandler0.handlerRequest(input)));
+        lblOutput.setText(String.valueOf(objHandler.handlerRequest(input)));
     }
 
 }
