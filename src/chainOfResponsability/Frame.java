@@ -13,7 +13,7 @@ public class Frame extends JFrame {
     private JLabel lblOutput;
 
     public Frame() {
-        setSize(360, 150);
+        setSize(360, 180);
         setTitle("Chain of Responsability");
         initializeComponents();
     }
@@ -23,17 +23,17 @@ public class Frame extends JFrame {
         txtInput = new JTextField();
         btnCalculate = new JButton();
         lblOutput = new JLabel();
-    
+
         getContentPane().add(pan);
-    
+
         pan.setLayout(null);
         pan.add(txtInput);
         pan.add(btnCalculate);
         pan.add(lblOutput);
-        
+
         txtInput.setText(null);
         txtInput.setBounds(30, 30, 300, 30);
-        
+
         btnCalculate.setText("Calculate");
         btnCalculate.setBounds(30, 60, 300, 30);
         btnCalculate.addMouseListener(new java.awt.event.MouseListener() {
@@ -58,7 +58,7 @@ public class Frame extends JFrame {
             public void mouseReleased(MouseEvent arg0) {
             }
         });
-        
+
         lblOutput.setText(null);
         lblOutput.setBounds(30, 90, 300, 30);
     }

@@ -4,22 +4,27 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class Frame extends JFrame {
+
     private static final long serialVersionUID = 1L;
+
     private JPanel pan;
     private JLabel lblComponent;
-    private JRadioButton jrbComponentA;
-    private JRadioButton jrbComponentB;
+    private JRadioButton jrbComponentPizzaBaseHam;
+    private JRadioButton jrbComponentPizzaBaseVegeterian;
     private ButtonGroup btg;
     private JLabel lblDecorator;
-    private JCheckBox cbxDecoratorA;
-    private JCheckBox cbxDecoratorB;
+    private JCheckBox cbxDecoratorAnchovy;
+    private JCheckBox cbxDecoratorCheese;
+    private JCheckBox cbxDecoratorChorizo;
+    private JCheckBox cbxDecoratorJalapeno;
+    private JCheckBox cbxDecoratorPineapple;
     private JLabel lblShow;
     private JButton btnClear;
 
     private Component component;
 
     public Frame() {
-        setSize(400, 400);
+        setSize(360, 420);
         setLocationRelativeTo(null);
         setTitle("Decorator");
         initializeComponents();
@@ -29,89 +34,112 @@ public class Frame extends JFrame {
     private void initializeComponents() {
         pan = new JPanel();
         lblComponent = new JLabel();
-        jrbComponentA = new JRadioButton();
-        jrbComponentB = new JRadioButton();
+        jrbComponentPizzaBaseHam = new JRadioButton();
+        jrbComponentPizzaBaseVegeterian = new JRadioButton();
         btg = new ButtonGroup();
         lblDecorator = new JLabel();
-        cbxDecoratorA = new JCheckBox();
-        cbxDecoratorB = new JCheckBox();
+        cbxDecoratorAnchovy = new JCheckBox();
+        cbxDecoratorCheese = new JCheckBox();
+        cbxDecoratorChorizo = new JCheckBox();
+        cbxDecoratorJalapeno = new JCheckBox();
+        cbxDecoratorPineapple = new JCheckBox();
         lblShow = new JLabel();
         btnClear = new JButton();
 
         getContentPane().add(pan);
-        
+
         pan.setLayout(null);
         pan.add(lblComponent);
-        pan.add(jrbComponentA);
-        pan.add(jrbComponentB);
+        pan.add(jrbComponentPizzaBaseHam);
+        pan.add(jrbComponentPizzaBaseVegeterian);
         pan.add(lblDecorator);
-        pan.add(cbxDecoratorA);
-        pan.add(cbxDecoratorB);
+        pan.add(cbxDecoratorAnchovy);
+        pan.add(cbxDecoratorCheese);
+        pan.add(cbxDecoratorChorizo);
+        pan.add(cbxDecoratorJalapeno);
+        pan.add(cbxDecoratorPineapple);
         pan.add(lblShow);
         pan.add(btnClear);
-        
-        lblComponent.setText("Component:");
-        lblComponent.setBounds(30, 30, 120, 30);
-        
-        jrbComponentA.setText("A");
-        jrbComponentA.setBounds(30, 60, 120, 30);
-        jrbComponentA.addItemListener(new java.awt.event.ItemListener() {
+
+        lblComponent.setText("Pizza Base:");
+        lblComponent.setBounds(30, 30, 300, 30);
+
+        jrbComponentPizzaBaseHam.setText("Ham");
+        jrbComponentPizzaBaseHam.setBounds(30, 60, 300, 30);
+        jrbComponentPizzaBaseHam.addItemListener(new java.awt.event.ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent arg0) {
-                component = new ComponentA();
-                lblShow.setText("" + component.operation());
+                pizzaHam();
             }
         });
-        
-        jrbComponentB.setText("B");
-        jrbComponentB.setBounds(30, 90, 120, 30);
-        jrbComponentB.addItemListener(new java.awt.event.ItemListener() {
+
+        jrbComponentPizzaBaseVegeterian.setText("Vegeterian");
+        jrbComponentPizzaBaseVegeterian.setBounds(30, 90, 300, 30);
+        jrbComponentPizzaBaseVegeterian.addItemListener(new java.awt.event.ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent arg0) {
-                component = new ComponentB();
-                lblShow.setText("" + component.operation());
+                pizzaVegeterian();
             }
         });
-        
-        btg.add(jrbComponentA);
-        btg.add(jrbComponentB);
-        
+
+        btg.add(jrbComponentPizzaBaseHam);
+        btg.add(jrbComponentPizzaBaseVegeterian);
+
         lblDecorator.setText("Add:");
-        lblDecorator.setBounds(30, 120, 120, 30);
-        
-        cbxDecoratorA.setText("A");
-        cbxDecoratorA.setBounds(30, 150, 120, 30);
-        cbxDecoratorA.addItemListener(new java.awt.event.ItemListener() {
+        lblDecorator.setBounds(30, 120, 300, 30);
+
+        cbxDecoratorAnchovy.setText("Anchovy");
+        cbxDecoratorAnchovy.setBounds(30, 150, 300, 30);
+        cbxDecoratorAnchovy.addItemListener(new java.awt.event.ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent arg0) {
-                if (cbxDecoratorA.isSelected()) {
-                    component = new DecoratorA(component);
-                    lblShow.setText("" + component.operation());
-                }
+                addAnchovy();
             }
         });
-        
-        cbxDecoratorB.setText("B");
-        cbxDecoratorB.setBounds(30, 180, 120, 30);
-        cbxDecoratorB.addItemListener(new java.awt.event.ItemListener() {
+
+        cbxDecoratorCheese.setText("Cheese");
+        cbxDecoratorCheese.setBounds(30, 180, 300, 30);
+        cbxDecoratorCheese.addItemListener(new java.awt.event.ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent arg0) {
-                if (cbxDecoratorB.isSelected()) {
-                    component = new DecoratorB(component);
-                    lblShow.setText("" + component.operation());
-                }
+                addCheese();
             }
         });
-        
-        lblShow.setBounds(30, 210, 120, 30);
-        
+
+        cbxDecoratorChorizo.setText("Chorizo");
+        cbxDecoratorChorizo.setBounds(30, 210, 300, 30);
+        cbxDecoratorChorizo.addItemListener(new java.awt.event.ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent arg0) {
+                addChorizo();
+            }
+        });
+
+        cbxDecoratorJalapeno.setText("Jalapeno");
+        cbxDecoratorJalapeno.setBounds(30, 240, 300, 30);
+        cbxDecoratorJalapeno.addItemListener(new java.awt.event.ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent arg0) {
+                addJalapeno();
+            }
+        });
+
+        cbxDecoratorPineapple.setText("Pineapple");
+        cbxDecoratorPineapple.setBounds(30, 270, 300, 30);
+        cbxDecoratorPineapple.addItemListener(new java.awt.event.ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent arg0) {
+                addPineapple();
+            }
+        });
+
+        lblShow.setBounds(30, 300, 300, 30);
+
         btnClear.setText("Clear");
-        btnClear.setBounds(30, 240, 120, 30);
+        btnClear.setBounds(30, 330, 300, 30);
         btnClear.addMouseListener(new java.awt.event.MouseListener() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
-                cbxDecoratorA.setSelected(false);
-                cbxDecoratorB.setSelected(false);
                 initialize();
             }
 
@@ -131,12 +159,66 @@ public class Frame extends JFrame {
             public void mouseReleased(MouseEvent arg0) {
             }
         });
+
     }
 
     private void initialize() {
-        jrbComponentA.setSelected(false);
-        jrbComponentB.setSelected(false);
-        jrbComponentA.setSelected(true);
-        lblShow.setText("" + component.operation());
+        cbxDecoratorAnchovy.setSelected(false);
+        cbxDecoratorCheese.setSelected(false);
+        cbxDecoratorChorizo.setSelected(false);
+        cbxDecoratorJalapeno.setSelected(false);
+        cbxDecoratorPineapple.setSelected(false);
+        jrbComponentPizzaBaseHam.setSelected(true);
+        showPrice();
     }
+
+    private void pizzaHam() {
+        component = new ComponentPizzaBaseHam();
+        showPrice();
+    }
+
+    private void pizzaVegeterian() {
+        component = new ComponentPizzaBaseVegeterian();
+        showPrice();
+    }
+
+    private void addAnchovy() {
+        if (cbxDecoratorAnchovy.isSelected()) {
+            component = new DecoratorAnchovy(component);
+            showPrice();
+        }
+    }
+
+    private void addCheese() {
+        if (cbxDecoratorCheese.isSelected()) {
+            component = new DecoratorCheese(component);
+            showPrice();
+        }
+    }
+
+    private void addChorizo() {
+        if (cbxDecoratorChorizo.isSelected()) {
+            component = new DecoratorChorizo(component);
+            showPrice();
+        }
+    }
+
+    private void addJalapeno() {
+        if (cbxDecoratorJalapeno.isSelected()) {
+            component = new DecoratorJalapeno(component);
+            showPrice();
+        }
+    }
+
+    private void addPineapple() {
+        if (cbxDecoratorPineapple.isSelected()) {
+            component = new DecoratorPineapple(component);
+            showPrice();
+        }
+    }
+
+    private void showPrice() {
+        lblShow.setText(String.valueOf(component.price()));
+    }
+
 }

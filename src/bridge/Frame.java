@@ -21,10 +21,11 @@ public class Frame extends JFrame {
     private Date date;
 
     public Frame() {
-        setSize(400, 250);
+        setSize(360, 330);
         setLocationRelativeTo(null);
         setTitle("Bridge");
         initializeComponents();
+        initialize();
     }
 
     private void initializeComponents() {
@@ -52,38 +53,38 @@ public class Frame extends JFrame {
         pan.add(lblDate);
 
         jrbDDMMAA.setText("DDMMA");
-        jrbDDMMAA.setBounds(10, 10, 120, 30);
-        jrbDDMMAA.addActionListener(new java.awt.event.ActionListener() {
+        jrbDDMMAA.setBounds(30, 30, 300, 30);
+        jrbDDMMAA.addItemListener(new java.awt.event.ItemListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-                date = new DDMMAA();
+            public void itemStateChanged(ItemEvent arg0) {
+                formatDDMMAA();
             }
         });
-        // jrbBigEndian
+
         jrbBigEndian.setText("BigEndian");
-        jrbBigEndian.setBounds(10, 40, 120, 30);
-        jrbBigEndian.addActionListener(new java.awt.event.ActionListener() {
+        jrbBigEndian.setBounds(30, 60, 300, 30);
+        jrbBigEndian.addItemListener(new java.awt.event.ItemListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-                date = new BigEndian();
+            public void itemStateChanged(ItemEvent arg0) {
+                formatBigEndian();
             }
         });
-        // jrbMMDDAA
+
         jrbMMDDAA.setText("MMDDAA");
-        jrbMMDDAA.setBounds(10, 70, 120, 30);
-        jrbMMDDAA.addActionListener(new java.awt.event.ActionListener() {
+        jrbMMDDAA.setBounds(30, 90, 300, 30);
+        jrbMMDDAA.addItemListener(new java.awt.event.ItemListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-                date = new MMDDAA();
+            public void itemStateChanged(ItemEvent arg0) {
+                formatMMDDAA();
             }
         });
-        // jrbUnix
+
         jrbUnix.setText("Unix");
-        jrbUnix.setBounds(10, 100, 120, 30);
-        jrbUnix.addActionListener(new java.awt.event.ActionListener() {
+        jrbUnix.setBounds(30, 120, 300, 30);
+        jrbUnix.addItemListener(new java.awt.event.ItemListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-                date = new Unix();
+            public void itemStateChanged(ItemEvent arg0) {
+                formatUnix();
             }
         });
 
@@ -92,62 +93,12 @@ public class Frame extends JFrame {
         btgFormat.add(jrbMMDDAA);
         btgFormat.add(jrbUnix);
 
-        btnToday.setBounds(10, 130, 120, 30);
-        btnToday.setText("Today");
-        btnToday.addMouseListener(new java.awt.event.MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent arg0) {
-                lblDate.setText(date.today());
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent arg0) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent arg0) {
-            }
-
-            @Override
-            public void mousePressed(MouseEvent arg0) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent arg0) {
-            }
-        });
-
-        btnTomorrow.setBounds(130, 130, 120, 30);
-        btnTomorrow.setText("Tomorrow");
-        btnTomorrow.addMouseListener(new java.awt.event.MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent arg0) {
-                lblDate.setText(date.tomorrow());
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent arg0) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent arg0) {
-            }
-
-            @Override
-            public void mousePressed(MouseEvent arg0) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent arg0) {
-            }
-        });
-
-        btnYesterday.setBounds(250, 130, 120, 30);
+        btnYesterday.setBounds(30, 150, 300, 30);
         btnYesterday.setText("Yesterday");
         btnYesterday.addMouseListener(new java.awt.event.MouseListener() {
             @Override
             public void mouseClicked(MouseEvent arg0) {
-                lblDate.setText(date.yesterday());
+                showYesterday();
             }
 
             @Override
@@ -167,7 +118,97 @@ public class Frame extends JFrame {
             }
         });
 
-        lblDate.setBounds(10, 160, 150, 30);
-        lblDate.setText(null);
+        btnToday.setBounds(30, 180, 300, 30);
+        btnToday.setText("Today");
+        btnToday.addMouseListener(new java.awt.event.MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                showToday();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent arg0) {
+            }
+        });
+
+        btnTomorrow.setBounds(30, 210, 300, 30);
+        btnTomorrow.setText("Tomorrow");
+        btnTomorrow.addMouseListener(new java.awt.event.MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                showTomorrow();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent arg0) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent arg0) {
+            }
+        });
+
+        lblDate.setBounds(30, 240, 300, 30);
+    }
+
+    private void formatDDMMAA() {
+        if (jrbDDMMAA.isSelected()) {
+            date = new DDMMAA();
+        }
+    }
+
+    private void formatBigEndian() {
+        if (jrbBigEndian.isSelected()) {
+            date = new BigEndian();
+        }
+    }
+
+    private void formatMMDDAA() {
+        if (jrbMMDDAA.isSelected()) {
+            date = new MMDDAA();
+        }
+    }
+
+    private void formatUnix() {
+        if (jrbUnix.isSelected()) {
+            date = new Unix();
+        }
+    }
+
+    private void showYesterday() {
+        lblDate.setText(date.yesterday());
+    }
+
+    private void showToday() {
+        lblDate.setText(date.today());
+    }
+
+    private void showTomorrow() {
+        lblDate.setText(date.tomorrow());
+    }
+
+    private void initialize() {
+        jrbDDMMAA.setSelected(true);
+        showToday();
     }
 }

@@ -2,6 +2,6 @@ package decorator;
 
 public abstract class Component {
 
-    public abstract int operation();
-    
+    public abstract double price();
+
 }
